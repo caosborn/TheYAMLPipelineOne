@@ -1,11 +1,11 @@
 parameters:
 - name: sdkVersion
   type: string
-  default: '3.1.x'
-  
+  default: '8'
+
 steps:
 - task: UseDotNet@2
-  displayName: 'Use .NET SDK v${{ parameters.sdkVersion }}'
+  displayName: Use .NET SDK version ${{ iif(eq(parameters.sdkVersion, ''), 'latest', parameters.sdkVersion ) }}
   inputs:
     packageType: 'sdk'
     version: ${{ parameters.sdkVersion }}
