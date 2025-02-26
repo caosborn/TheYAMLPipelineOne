@@ -5,7 +5,7 @@ parameters:
 
 steps:
 - task: UseDotNet@2
-  displayName: 'Use .NET SDK v${{ iif(eq(parameters.sdkVersion, ''), 'latest', parameters.sdkVersion ) }}'
+  displayName: Use .NET SDK v${{ iif(eq(parameters.sdkVersion, ''), 'latest', parameters.sdkVersion ) }}
   inputs:
     packageType: 'sdk'
     version: ${{ parameters.sdkVersion }}
